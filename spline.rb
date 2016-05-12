@@ -46,7 +46,8 @@ class Spline
 			@b[i] = 12/(h**2)*((@m[i+1] + @m[i])/2 - (@y[i+1] - @y[i])/h)
 		end
 	end
-
+	
+	#метод прогонки
 	def pr(a, b, c, f)
 		n = f.length
 		a[0] = 0;
