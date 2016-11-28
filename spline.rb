@@ -1,5 +1,6 @@
 require 'mathn.rb'
 
+#сплайны
 #сама функция f(x)
 def f(x)
 	x**2 - Math::log10(x + 2)
@@ -36,7 +37,7 @@ class Spline
 		temp = Array.new(n-2) { |i| 3*(@y[i+2] - @y[i])/h }
 		temp[0] -= dy0
 		temp[n-3] -= dyn
-		
+
 		@m = pr(Array.new(n-2){1}, Array.new(n-2){4}, Array.new(n-2){1}, temp)
 		@m.push(dyn)
 		@m.unshift(dy0)
@@ -46,7 +47,7 @@ class Spline
 			@b[i] = 12/(h**2)*((@m[i+1] + @m[i])/2 - (@y[i+1] - @y[i])/h)
 		end
 	end
-	
+
 	#метод прогонки
 	def pr(a, b, c, f)
 		n = f.length
